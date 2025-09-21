@@ -110,6 +110,11 @@ a:hover {
   color: var(--bs-link-hover-color);
 }
 
+
+.disclaimer {
+  background-color: var(--bs-white);
+}
+
 /* Skip links styling */
 .skip-links ul {
   list-style-type: none;
@@ -129,6 +134,10 @@ a:hover {
 .skip-links a:focus {
   top: 2px;
   z-index: 9999;
+}
+
+.global-header {
+  background-color: black;
 }
 
 /* Title and logo styling */
@@ -152,6 +161,23 @@ a:hover {
   border-right: 13px solid transparent;
 }
 
+.global-header__right {
+
+}
+
+#global-nav-toggle {
+  background-color: black;
+  color: white;
+  font-size: 30px;
+}
+
+
+.icon {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+
 /* Utility styles */
 
 .visually-hidden {
@@ -170,4 +196,18 @@ a:hover {
 svg {
   background-color: var(--bs-black);
   fill: white;
+}
+
+
+.hero-banner img {
+  object-fit: cover;
+}
+
+.hero-banner__content {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+.hero-banner__title a {
+  color: white;
 }
