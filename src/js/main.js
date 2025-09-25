@@ -1,17 +1,5 @@
 import { getParkData } from "./parkService.mjs";
 
-const parkData = getParkData();
-
-// Title
-const title = document.querySelector("title");
-title.innerHTML = parkData.fullName;
-
-// Disclaimer
-const disclaimer = document.querySelector(".disclaimer > a");
-disclaimer.href = parkData.url;
-disclaimer.innerHTML = parkData.fullName;
-
-
 function parkInfoTemplate(info) {
   return `<a href="/" class="hero-banner__title">${info.name}</a>
   <p class="hero-banner__subtitle">
@@ -20,7 +8,22 @@ function parkInfoTemplate(info) {
   </p>`;
 }
 
-// Park & States
-const hero_banner_content = document.querySelector(".hero-banner__content");
-hero_banner_content.innerHTML = parkInfoTemplate(parkData);
+function setHeaderInfo(data) {
+  // insert data into disclaimer section
+  const disclaimer = document.querySelector(".disclaimer > a");
+  disclaimer.href = data.url;
+  disclaimer.innerHTML = data.fullName;
+
+  // set the page title
+  const title = document.querySelector("head > title").textContent = data.fullName;
+
+  // set banner image
+  document.querySelector(".hero-banner > img").src = data.images[0].url;
+
+  // set header info
+  document.querySelector(".hero-banner__content").innerHTML = parkInfoTemplate(data);
+}
+
+const parkData = getParkData();
+setHeaderInfo(parkData);
 

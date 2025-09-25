@@ -113,6 +113,7 @@ a:hover {
 
 .disclaimer {
   background-color: var(--bs-white);
+  padding: 1rem;
 }
 
 /* Skip links styling */
