@@ -314,6 +314,41 @@ svg {
 }
 
 
+main {
+  padding: 1rem;
+}
+
+main p {
+  font-family: var(--bs-font-serif);
+}
+
+.intro {
+  padding: 1.2rem;
+}
+
+.park-info {
+  display: block;
+}
+
+.media-card {
+  text-decoration: none;
+  display: block; /*make the whole card clickable */
+}
+
+
+#park-footer {
+  padding: 1rem;
+  background-color: var(--bs-grey-3);
+ 
+}
+
+#park-footer address {
+  font-style: normal; /*not italicized*/
+  line-height: 0.8; 
+}
+
+
+
 @media screen and (min-width: 1000px) {
   .global-nav {
     display: flex;
@@ -321,6 +356,13 @@ svg {
 
   .global-nav__split-button__toggle  {
   background-color: transparent;
+  }
+
+  /*Park nav - media cards*/
+  .park-info {
+    display: flex;
+    gap: 1rem;
+    /*align-items: stretch;   /* make all cards same height */
   }
 
 }

@@ -23,15 +23,14 @@ function mediaCardTemplate(info) {
 
   info.forEach(card => {
     html += `
-      <a href="${card.link}">
+      <a class="media-card" href="${card.link}">
         <img src="${card.image}" alt="${card.name}" class="media-card__image" />
 
         <h1 class="media-card__title">${card.name}</h1>
 
-        <p class="media-card__desc>${card.description}</p>
+        <p class="media-card__desc">${card.description}</p>
       </a>
     `;
-    console.log(card);
   });
 
   return html;
@@ -45,15 +44,15 @@ function contactInfoTemplate(info) {
   let html = ``;
 
   html += `
-    <h1>Contact Info</h1>
+    <h1>CONTACT INFO</h1>
 
     <address>
-      <h2><em>Mailing Address:</em></h2>
+      <h2>Mailing Address:</h2>
 
       <p>${address.line1}</p>
       <p>${address.city}, ${address.stateCode} ${address.postalCode}</p>
 
-      <h2><em>Phone:</em></h2>
+      <h2>Phone:</h2>
   `
 
   contacts.forEach(number => {
@@ -87,7 +86,7 @@ function setIntroInfo(data) {
 }
 
 function setMediaCard(data) {
-  document.querySelector(".media-card").innerHTML = mediaCardTemplate(data);
+  document.querySelector(".park-info").innerHTML = mediaCardTemplate(data);
 }
 
 function setContactInfo(data) {
