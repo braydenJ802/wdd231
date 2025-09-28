@@ -24,6 +24,19 @@ function setHeaderInfo(data) {
   document.querySelector(".hero-banner__content").innerHTML = parkInfoTemplate(data);
 }
 
+
+function mediaCardTemplate(info) {
+
+  return `
+    <img src="${info.url}" alt="${info.altText}" class="media-card__image" />
+
+    <h1 class="media-card__title">${info.title}</h1>
+
+    <p class="media-card__desc>${info.description}</p>
+  `;
+}
+
+
 const parkData = getParkData();
 setHeaderInfo(parkData);
 
