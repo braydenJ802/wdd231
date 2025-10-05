@@ -94,10 +94,14 @@ function setContactInfo(data) {
 }
 
 
-const parkData = getParkData();
-const parkMediaInfo = getParkMediaInfo();
-setHeaderInfo(parkData);
-setIntroInfo(parkData);
-setMediaCard(parkMediaInfo);
-setContactInfo(parkData);
+async function init() {
+  const parkData = await getParkData();
+  const parkMediaInfo = await getParkMediaInfo();
 
+  setHeaderInfo(parkData);
+  setIntroInfo(parkData);
+  setMediaCard(parkMediaInfo);
+  setContactInfo(parkData);
+}
+
+init();

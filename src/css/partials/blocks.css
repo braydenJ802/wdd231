@@ -1,0 +1,9 @@
+.media-card {
+  text-decoration: none;
+  display: block; /*make the whole card clickable */
+}
+
+.disclaimer {
+  background-color: var(--bs-white);
+  padding: 1rem;
+}

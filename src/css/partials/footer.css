@@ -1,0 +1,10 @@
+#park-footer {
+  padding: 1rem;
+  background-color: var(--bs-grey-3);
+ 
+}
+
+#park-footer address {
+  font-style: normal; /*not italicized*/
+  line-height: 0.8; 
+}
