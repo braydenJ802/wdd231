@@ -20,3 +20,19 @@ export async function getParkData() {
   const parkData = await getJson("parks?parkCode=yell");
   return parkData.data[0];
 }
+
+export async function getParkAlerts() {
+  const parkAlerts = await getJson("alerts?parkCode=yell");
+  return parkAlerts.data; // get the whole array
+}
+
+export async function getVisitorCenterData() {
+  const parkVisitorCenterData = await getJson("visitorcenters?parkCode=yell");
+  return parkVisitorCenterData.data;
+}
+
+export async function getActivityData() {
+  const parkActivityData = await getJson("activities?parkCode=yell");
+  console.log(parkActivityData);
+  return parkActivityData.data;
+}

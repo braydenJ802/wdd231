@@ -1,3 +1,7 @@
+import "../css/style.css"; // we can do this type of import because we are using Vite
+import "../css/home.css";
+
+
 import { getParkData } from "./parkService.mjs";
 import { getParkMediaInfo } from "./parkInfo.mjs";
 
@@ -65,7 +69,7 @@ function contactInfoTemplate(info) {
   return html;
 }
 
-function setHeaderInfo(data) {
+export function setHeaderInfo(data) {
   // insert data into disclaimer section
   const disclaimer = document.querySelector(".disclaimer > a");
   disclaimer.href = data.url;
@@ -89,7 +93,7 @@ function setMediaCard(data) {
   document.querySelector(".park-info").innerHTML = mediaCardTemplate(data);
 }
 
-function setContactInfo(data) {
+export function setContactInfo(data) {
   document.querySelector("#park-footer").innerHTML = contactInfoTemplate(data);
 }
 
