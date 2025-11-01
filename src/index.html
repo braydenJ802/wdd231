@@ -53,16 +53,47 @@
             </svg>
             <span class="visually-hidden">Search</span>
           </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> 
-            <p>menu</p>
+          <button id="global-nav-toggle"
+                  class="global-nav__toggle"
+                  aria-expanded="false"
+                  aria-label="Open Menu"
+                >
+            <div class="global-nav__toggle--closed">
+              <svg class="icon">
+                <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+              </svg>
+              <span class="visually-hidden">Open</span> 
+              <p>Menu</p>
+            </div>
+
+            <div class="global-nav__toggle--open">
+              <svg class="icon">
+                <use xlink:href="/images/sprite.symbol.svg#close"></use>
+              </svg>
+              <p>Close</p>
+            </div>
           </button>
         </div>
-        
       </section>
+
+      <nav class="global-nav">
+        <!--<h2 class="global-nav__section-heading">Explore this Park</h2>-->
+        <ul class="global-nav__list">
+          <li>
+            <div class="global-nav__split-button">
+              <a href="#">Plan Your Visit</a>
+              <button class="global-nav__split-button__toggle">
+                <span class="visually-hidden"
+                  >Toggle submenu for Plan Your Visit</span>
+                  <svg class="icon" role="presentation" focusable="false">
+                    <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                  </svg>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
       <section id="park-header">
         <div class="hero-banner">
           <img src="https://www.nps.gov/common/uploads/structured_data/3C7D5920-1DD8-B71B-0B83F012ED802CEA.jpg" alt="" />
@@ -71,25 +102,6 @@
         </div>
 
         <div class="banner-nav">
-          <nav class="global-nav">
-            <!--<h2 class="global-nav__section-heading">Explore this Park</h2>-->
-            <ul class="global-nav__list">
-              <li>
-                <div class="global-nav__split-button">
-                  <a href="#">Plan Your Visit</a>
-                  <button class="global-nav__split-button__toggle">
-                    <span class="visually-hidden"
-                      >Toggle submenu for Plan Your Visit</span
-                    >
-                    <svg class="icon" role="presentation" focusable="false">
-                      <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
-                    </svg>
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </nav>
-
           <nav class="park-nav">
             <a href="conditions.html">
               <span>Info</span>
@@ -126,7 +138,7 @@
               </svg>
             </a>
           </nav>
-        </div>
+
         
       </section>
     </header>
