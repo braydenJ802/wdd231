@@ -49,6 +49,125 @@
   align-items: center;
 }
 
+.banner-nav__menus {
+  display: none;
+}
+
+.banner-nav__menu {
+  position: relative;
+  min-width: 160px;
+}
+
+.banner-nav__menu-trigger {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.35rem 1.1rem 0.35rem 0.65rem;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.4rem;
+}
+
+.banner-nav__menu-trigger span:first-child {
+  white-space: nowrap;
+}
+
+.banner-nav__menu-trigger:hover,
+.banner-nav__menu:focus-within .banner-nav__menu-trigger {
+  background-color: var(--bs-gray-900);
+}
+
+.banner-nav__menu-caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.2s ease;
+  margin-left: 0.35rem;
+}
+
+.banner-nav__menu:hover .banner-nav__menu-caret,
+.banner-nav__menu:focus-within .banner-nav__menu-caret {
+  transform: rotate(180deg);
+}
+
+.banner-nav__menu-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bs-black);
+  min-width: 260px;
+  padding: 0.75rem 0.35rem;
+  display: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.banner-nav__menu:hover .banner-nav__menu-panel,
+.banner-nav__menu:focus-within .banner-nav__menu-panel {
+  display: block;
+}
+
+.banner-nav__menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.banner-nav__menu-panel a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.85rem;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.banner-nav__menu-panel a:hover {
+  background-color: rgb(58, 125, 149);
+  text-decoration: underline;
+}
+
+.banner-nav__menu-item--has-children {
+  position: relative;
+}
+
+.banner-nav__menu-item--has-children > a {
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.banner-nav__menu-item--has-children > a::after {
+  content: "";
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+  display: inline-block;
+}
+
+.banner-nav__submenu-panel {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 230px;
+  background-color: var(--bs-black);
+  padding: 0.5rem 0;
+  display: none;
+}
+
+.banner-nav__menu-item--has-children:hover .banner-nav__submenu-panel,
+.banner-nav__menu-item--has-children:focus-within .banner-nav__submenu-panel {
+  display: block;
+}
+
 .global-nav {
   background-color: black;
   display: flex;
@@ -227,6 +346,41 @@
   text-decoration: underline;
 }
 
+.global-nav__catalog {
+  display: none;
+  gap: 2rem;
+  padding: 2rem 2rem 3rem;
+}
+
+.global-nav__catalog-column {
+  flex: 1;
+}
+
+.global-nav__catalog-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+}
+
+.global-nav__catalog-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.global-nav__catalog-column a {
+  display: block;
+  padding: 0.35rem 0;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.global-nav__catalog-column a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
 .global-nav__deep-submenu {
   list-style: none;
   margin: 0;
@@ -317,10 +471,28 @@ main p {
 @media screen and (min-width: 1000px) {
   .global-nav {
     display: flex;
+    border-top: none;
+  }
+
+  .global-nav__section-heading.section-heading--green,
+  .global-nav__list:first-of-type {
+    display: none;
+  }
+
+  .global-nav__section-heading.section-heading--blue {
+    display: none;
+  }
+
+  .global-nav__list--nps {
+    display: none;
+  }
+
+  .global-nav__catalog {
+    display: flex;
   }
 
   .global-nav__split-button__toggle  {
-  background-color: transparent;
+    background-color: transparent;
   }
 
   /*Park nav - media cards*/
@@ -330,4 +502,36 @@ main p {
     /*align-items: stretch;   /* make all cards same height */
   }
 
+  .banner-nav {
+    justify-content: flex-start;
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .banner-nav__menus {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+    width: auto;
+    align-items: center;
+  }
+
+  .banner-nav__menu {
+    min-width: 180px;
+  }
+
+  .banner-nav__menu-trigger {
+    border-color: #2a2a2a;
+  }
+
+  .park-nav {
+    margin-left: auto;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .park-nav a {
+    flex-direction: column;
+    align-items: center;
+  }
 }
