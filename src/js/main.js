@@ -4,6 +4,7 @@ import "../css/home.css";
 
 import { getParkData } from "./parkService.mjs";
 import { getParkMediaInfo } from "./parkInfo.mjs";
+import { initNavigation } from "./navigation.mjs";
 
 
 function parkInfoTemplate(info) {
@@ -98,37 +99,6 @@ export function setContactInfo(data) {
   document.querySelector("#park-footer").innerHTML = contactInfoTemplate(data);
 }
 
-function enableNavigation() {
-  const mainMenuButton = document.querySelector("#global-nav-toggle");
-  mainMenuButton.addEventListener("click", (e) => {
-    let target = e.target;
-
-    // toggle the show class on the global-nav
-    const innerButtonContent = document.querySelector(".global-nav");
-    if (innerButtonContent.classList.contains("show")) {
-      innerButtonContent.classList.remove("show"); // Go back to "Menu"
-    } else {
-    innerButtonContent.classList.add("show"); // Open Menu -> "Close" appears
-    };
-    
-    // check to see if target is the button or something inside the button
-    if (target.tagName != "BUTTON") {
-      target = target.closest("button");
-    }
-    
-    // check to see if we just opened or closed the menu
-    if (innerButtonContent.classList.contains("show")) {
-      // if we opened it then set the aria-expanded attribute to true
-      target.setAttribute("aria-expanded", true);
-    } else {
-      // if we closed it then set the aria-expanded attribute to false
-      target.setAttribute("aria-expanded", false);
-    }
-
-    console.log("toggle");
-  });
-}
-
 async function init() {
   const parkData = await getParkData();
   const parkMediaInfo = await getParkMediaInfo();
@@ -140,4 +110,4 @@ async function init() {
 }
 
 init();
-enableNavigation();
+initNavigation();

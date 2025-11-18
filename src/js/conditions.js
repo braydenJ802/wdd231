@@ -4,6 +4,7 @@ import "../css/conditions.css";
 
 import { getParkData, getParkAlerts, getVisitorCenterData, getActivityData } from "./parkService.mjs";
 import { setHeaderInfo, setContactInfo } from "./main.js";
+import { initNavigation } from "./navigation.mjs";
 
 // Template functions
 
@@ -78,3 +79,4 @@ async function init() {
 }
 
 init();
+initNavigation();
