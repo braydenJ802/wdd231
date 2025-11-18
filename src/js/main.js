@@ -1,3 +1,7 @@
+import "../css/style.css"; // we can do this type of import because we are using Vite
+import "../css/home.css";
+
+
 import { getParkData } from "./parkService.mjs";
 import { getParkMediaInfo } from "./parkInfo.mjs";
 
@@ -65,14 +69,15 @@ function contactInfoTemplate(info) {
   return html;
 }
 
-function setHeaderInfo(data) {
+export function setHeaderInfo(data) {
   // insert data into disclaimer section
   const disclaimer = document.querySelector(".disclaimer > a");
   disclaimer.href = data.url;
   disclaimer.innerHTML = data.fullName;
 
   // set the page title
-  const title = document.querySelector("head > title").textContent = data.fullName;
+  document.querySelector("head > title").textContent = data.fullName;
+
 
   // set banner image
   document.querySelector(".hero-banner > img").src = data.images[0].url;
@@ -89,10 +94,40 @@ function setMediaCard(data) {
   document.querySelector(".park-info").innerHTML = mediaCardTemplate(data);
 }
 
-function setContactInfo(data) {
+export function setContactInfo(data) {
   document.querySelector("#park-footer").innerHTML = contactInfoTemplate(data);
 }
 
+function enableNavigation() {
+  const mainMenuButton = document.querySelector("#global-nav-toggle");
+  mainMenuButton.addEventListener("click", (e) => {
+    let target = e.target;
+
+    // toggle the show class on the global-nav
+    const innerButtonContent = document.querySelector(".global-nav");
+    if (innerButtonContent.classList.contains("show")) {
+      innerButtonContent.classList.remove("show"); // Go back to "Menu"
+    } else {
+    innerButtonContent.classList.add("show"); // Open Menu -> "Close" appears
+    };
+    
+    // check to see if target is the button or something inside the button
+    if (target.tagName != "BUTTON") {
+      target = target.closest("button");
+    }
+    
+    // check to see if we just opened or closed the menu
+    if (innerButtonContent.classList.contains("show")) {
+      // if we opened it then set the aria-expanded attribute to true
+      target.setAttribute("aria-expanded", true);
+    } else {
+      // if we closed it then set the aria-expanded attribute to false
+      target.setAttribute("aria-expanded", false);
+    }
+
+    console.log("toggle");
+  });
+}
 
 async function init() {
   const parkData = await getParkData();
@@ -105,3 +140,4 @@ async function init() {
 }
 
 init();
+enableNavigation();

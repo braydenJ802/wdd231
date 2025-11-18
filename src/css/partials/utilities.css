@@ -15,3 +15,17 @@
   max-width: 40px;
   max-height: 40px;
 }
+
+/* Alerts */
+.alert-information {
+  color: var(--alert-information);
+}
+.alert-danger {
+  color: var(--alert-danger);
+}
+.alert-closure {
+  color: var(--alert-closure);
+}
+.alert-caution {
+  color: var(--alert-caution);
+}
