@@ -4,6 +4,7 @@ import "../css/home.css";
 
 import { getParkData } from "./parkService.mjs";
 import { getParkMediaInfo } from "./parkInfo.mjs";
+import { initNavigation } from "./navigation.mjs";
 
 
 function parkInfoTemplate(info) {
@@ -98,68 +99,6 @@ export function setContactInfo(data) {
   document.querySelector("#park-footer").innerHTML = contactInfoTemplate(data);
 }
 
-function enableNavigation() {
-  const mainMenuButton = document.querySelector("#global-nav-toggle");
-  mainMenuButton.addEventListener("click", (e) => {
-    let target = e.target;
-
-    // toggle the show class on the global-nav
-    const innerButtonContent = document.querySelector(".global-nav");
-    if (innerButtonContent.classList.contains("show")) {
-      innerButtonContent.classList.remove("show"); // Go back to "Menu"
-    } else {
-    innerButtonContent.classList.add("show"); // Open Menu -> "Close" appears
-    };
-    
-    // check to see if target is the button or something inside the button
-    if (target.tagName != "BUTTON") {
-      target = target.closest("button");
-    }
-    
-    // check to see if we just opened or closed the menu
-    if (innerButtonContent.classList.contains("show")) {
-      // if we opened it then set the aria-expanded attribute to true
-      target.setAttribute("aria-expanded", true);
-    } else {
-      // if we closed it then set the aria-expanded attribute to false
-      target.setAttribute("aria-expanded", false);
-    }
-
-    console.log("toggle");
-  });
-
-  // Toggle Buttons for Dropdowns
-  const toggleButtons = document.querySelectorAll(".global-nav__split-button__toggle");
-  toggleButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const isOpen = button.getAttribute("aria-expanded") === "true";
-      button.setAttribute("aria-expanded", String(!isOpen));
-      const submenu = button.closest("li").querySelector(".global-nav__submenu");
-      if (!submenu) return;
-      submenu.classList.toggle("show", !isOpen);
-    });
-  });
-
-  // Nested Toggle Buttons for Submenu Dropdowns
-  const nestedToggleButtons = document.querySelectorAll(".global-nav__submenu__split-button__toggle");
-  nestedToggleButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const isOpen = button.getAttribute("aria-expanded") === "true";
-      button.setAttribute("aria-expanded", String(!isOpen));
-
-      const nestedSubmenu = button.closest(".global-nav__submenu__split-button")?.nextElementSibling;
-
-      if (
-        nestedSubmenu &&
-        (nestedSubmenu.classList.contains("global-nav__submenu") ||
-          nestedSubmenu.classList.contains("global-nav__deep-submenu"))
-      ) {
-        nestedSubmenu.classList.toggle("show", !isOpen);
-      }
-    });
-  });
-}
-
 async function init() {
   const parkData = await getParkData();
   const parkMediaInfo = await getParkMediaInfo();
@@ -171,4 +110,4 @@ async function init() {
 }
 
 init();
-enableNavigation();
+initNavigation();
