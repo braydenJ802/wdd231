@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+.content {
+  width: 80%;
+  height: 500px;
+  border: 1px solid;
+}
+
+.red {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  transition: 1s ease;
+}
+
+.red:hover {
+    border-radius: 50%;
+    background-color: bisque;
+}
+
+.yellow {
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  border-radius: 0 0 50% 50%;
+  animation: rock 2s infinite;
+}
+
+@keyframes rock {
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-90deg);
+    }
+}
+
+.green {
+  width: 100px;
+  height: 40px;
+  background-color: green;
+  border: 0;
+}
+
+.blue {
+  width: 100px;
+  height: 0px;
+  background-color: blue;
+  opacity: 0;
+  transition: 1s ease;
+}
+
+.show {
+    height: 100px;
+    opacity: 1;
+}

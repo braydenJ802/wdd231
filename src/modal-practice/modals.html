@@ -1,0 +1,27 @@
+<!-- modals.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal Exercise</title>
+    <link rel="stylesheet" href="modals.css" />
+    <script src="modals.js" defer></script>
+  </head>
+  <body>
+    <dialog class="modal" id="modal" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <form method="dialog" class="modal-content">
+            <button class="close-button" aria-label="Close modal">&times;</button>
+            <h2 id="modal-title">Modal Title</h2>
+            <p id="modal-description">This is a simple modal example.</p>
+            <input type="text" placeholder="Your feedback" />
+            <button>Submit</button>
+        </form>
+    </dialog>
+    <header><h1>Modal Exercise</h1></header>
+    <main>
+      <p>Some content here</p>
+      <button id="open-modal">Click Me!</button>
+    </main>
+  </body>
+</html>
