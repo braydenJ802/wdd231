@@ -127,6 +127,37 @@ function enableNavigation() {
 
     console.log("toggle");
   });
+
+  // Toggle Buttons for Dropdowns
+  const toggleButtons = document.querySelectorAll(".global-nav__split-button__toggle");
+  toggleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!isOpen));
+      const submenu = button.closest("li").querySelector(".global-nav__submenu");
+      if (!submenu) return;
+      submenu.classList.toggle("show", !isOpen);
+    });
+  });
+
+  // Nested Toggle Buttons for Submenu Dropdowns
+  const nestedToggleButtons = document.querySelectorAll(".global-nav__submenu__split-button__toggle");
+  nestedToggleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!isOpen));
+
+      const nestedSubmenu = button.closest(".global-nav__submenu__split-button")?.nextElementSibling;
+
+      if (
+        nestedSubmenu &&
+        (nestedSubmenu.classList.contains("global-nav__submenu") ||
+          nestedSubmenu.classList.contains("global-nav__deep-submenu"))
+      ) {
+        nestedSubmenu.classList.toggle("show", !isOpen);
+      }
+    });
+  });
 }
 
 async function init() {
