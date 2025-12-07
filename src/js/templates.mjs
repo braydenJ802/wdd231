@@ -87,10 +87,10 @@ export function visitorCenterImageTemplate(image) {
 }
 
 export function visitorCenterDirectionsTemplate(info, url) {
-  // Directions paragraph plus optional external link.
+  // Directions paragraph
   const directions = info ?? "No directions provided.";
-  const link = url
-    ? `<a class="visitor-center-directions__link" href="${url}" target="_blank" rel="noreferrer noopener">
+  const link = url // link is an empty placeholder
+    ? `<a class="visitor-center-directions__link" href="#" aria-disabled="true"> 
         Open detailed directions
       </a>`
     : "";
