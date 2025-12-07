@@ -2,10 +2,9 @@ import "../css/style.css"; // we can do this type of import because we are using
 import "../css/home.css";
 
 
-import { getParkData, getVisitorCenterData } from "./parkService.mjs";
+import { getParkData } from "./parkService.mjs";
 import { getParkMediaInfo } from "./parkInfo.mjs";
 import { initNavigation } from "./navigation.mjs";
-import { renderVisitorCenters } from "./visitorCenters.mjs";
 
 
 function parkInfoTemplate(info) {
@@ -103,14 +102,11 @@ export function setContactInfo(data) {
 async function init() {
   const parkData = await getParkData();
   const parkMediaInfo = await getParkMediaInfo();
-  const visitorCenters = await getVisitorCenterData();
 
   setHeaderInfo(parkData);
   setIntroInfo(parkData);
   setMediaCard(parkMediaInfo);
   setContactInfo(parkData);
-  const visitorCenterLists = document.querySelectorAll("ul.visitor-center");
-  renderVisitorCenters(visitorCenterLists, visitorCenters);
 }
 
 init();

@@ -5,7 +5,6 @@ import "../css/conditions.css";
 import { getParkData, getParkAlerts, getVisitorCenterData, getActivityData } from "./parkService.mjs";
 import { setHeaderInfo, setContactInfo } from "./main.js";
 import { initNavigation } from "./navigation.mjs";
-import { renderVisitorCenters } from "./visitorCenters.mjs";
 
 // Template functions
 
@@ -26,9 +25,7 @@ function alertInfoTemplate(alert) {
 
 function visitorCenterInfoTemplate(visitorCenter) {
     return `<li class="visitor-center">
-        <h3 class="visitor-center-name">${visitorCenter.name}</h3>
-        <p class="visitor-center-desc">${visitorCenter.description ?? "No description available."}</p>
-        <p class="visitor-center-directionsInfo">${visitorCenter.directionsInfo ?? "No directions provided."}</p>
+        <h4><a href="visitor-center.html?id=${visitorCenter.id}">${visitorCenter.name}</a></h4>
     </li>`;
 }
 
@@ -77,8 +74,6 @@ async function init() {
   setParkAlerts(parkAlerts);
   setVisitorCenterInfo(visitorCenters);
   setActivityInfo(activities);
-  const navVisitorCenterLists = document.querySelectorAll("ul.visitor-center");
-  renderVisitorCenters(navVisitorCenterLists, visitorCenters);
 }
 
 init();
