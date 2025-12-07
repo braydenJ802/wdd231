@@ -5,6 +5,7 @@ import "../css/conditions.css";
 import { getParkData, getParkAlerts, getVisitorCenterData, getActivityData } from "./parkService.mjs";
 import { setHeaderInfo, setContactInfo } from "./main.js";
 import { initNavigation } from "./navigation.mjs";
+import { renderVisitorCenters } from "./visitorCenters.mjs";
 
 // Template functions
 
@@ -76,6 +77,8 @@ async function init() {
   setParkAlerts(parkAlerts);
   setVisitorCenterInfo(visitorCenters);
   setActivityInfo(activities);
+  const navVisitorCenterLists = document.querySelectorAll("ul.visitor-center");
+  renderVisitorCenters(navVisitorCenterLists, visitorCenters);
 }
 
 init();

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>[Park Name]</title>
-    <script type="module" src="js/conditions.js"></script>
+    <script type="module" src="js/main.js"></script>
   </head>
   <body>
     <p class="disclaimer">
@@ -352,7 +352,42 @@
                   <li><a href="#">Basic Information</a></li>
                   <li><a href="#">Directions & Transportation</a></li>
                   <li><a href="#">Eating & Sleeping</a></li>
-                  <li><a href="#">Places To Go</a></li>
+                  <li>
+                    <div class="global-nav__submenu__split-button">
+                    <a href="#">Places To Go</a>
+                    <button class="global-nav__submenu__split-button__toggle">
+                        <span class="visually-hidden"
+                        >Toggle submenu for Places To Go</span>
+                        <svg class="icon" role="presentation" focusable="false">
+                            <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                        </svg>
+                    </button>
+                    </div>
+                    <ul class="global-nav__deep-submenu">
+                    <li>
+                        <div class="global-nav__deep-submenu__split-button">
+                        <a href="#">Visitor Centers</a>
+                        <button class="global-nav__deep-submenu__split-button__toggle">
+                            <span class="visually-hidden"
+                            >Toggle submenu for Visitor Centers</span>
+                            <svg class="icon" role="presentation" focusable="false">
+                                <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                            </svg>
+                        </button>
+                        </div>
+                        <ul class="global-nav__very-deep-submenu visitor-center"></ul>
+                    </li>
+                    <li><a href="#" >Canyon Village and the Grand Canyon</a></li>
+                    <li><a href="#" >Fishing Bridge, Lake, and Bridge Bay</a></li>
+                    <li><a href="#" >Madison and the West</a></li>
+                    <li><a href="#" >Mammoth Hot Springs and the North</a></li>
+                    <li><a href="#" >Norris Geyser Basin</a></li>
+                    <li><a href="#" >Old Faithful</a></li>
+                    <li><a href="#" >Tower-Roosevelt and the Northeast</a></li>
+                    <li><a href="#" >West Thumb, Grant, and the South</a></li>
+                    <li><a href="#" >... If You Can't Come to Yellowstone</a></li>
+                    </ul>
+                  </li>
                   <li><a href="#">Things To Do</a></li>
                   <li><a href="#">Calendar</a></li>
                   <li><a href="#">Safety</a></li>
@@ -427,45 +462,25 @@
 
             <a href="#">
               <span>Calendar</span>
-              <svg class="icon" role="presentation" focusable="false">
+              <svg class="icon" role="presentation" focusable="false">>
                 <use xlink:href="/images/sprite.symbol.svg#calendar"></use>
               </svg>
             </a>
 
             <a href="#">
               <span>Fees</span>
-              <svg class="icon" role="presentation" focusable="false">
+              <svg class="icon" role="presentation" focusable="false">>
                 <use xlink:href="/images/sprite.symbol.svg#fee-22"></use>
               </svg>
             </a>
           </nav>
-        </div>
+
+        
       </section>
     </header>
     
     <main id="main">
-      <h1>Current Conditions</h1>
       
-      <section class="alerts">
-        <h2>Alerts</h2>
-        <ul> <!-- Dynamically loaded in with Java Script --></ul>
-      </section>
-
-      <section class="visitor-services">
-        <h2>Visitor Services</h2>
-        <details name="current-details">
-          <summary>Visitor Centers</summary>
-          <ul></ul>
-        </details>
-      </section>
-
-      <section class="activities">
-        <h2>Activities</h2>
-        <details name="current-details">
-          <summary>All Activities</summary>
-          <ul></ul>
-        </details>
-      </section>
 
     </main>
     <footer id="park-footer">

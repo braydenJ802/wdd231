@@ -394,6 +394,53 @@
   margin: 0;
 }
 
+.global-nav__deep-submenu__split-button {
+  display: flex;
+  align-items: stretch;
+  background-color: #050505;
+  border-top: 1px solid #111;
+  padding-left: 0.5rem;
+}
+
+.global-nav__deep-submenu__split-button > a {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: block;
+  text-decoration: none;
+  color: white;
+  line-height: 1.4;
+}
+
+.global-nav__deep-submenu__split-button__toggle {
+  min-width: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #222;
+  background: transparent;
+  color: white;
+  position: relative;
+}
+
+.global-nav__deep-submenu__split-button__toggle::after {
+  content: "";
+  display: block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  transform: rotate(135deg);
+}
+
+.global-nav__deep-submenu__split-button__toggle[aria-expanded="true"]::after {
+  transform: rotate(-45deg);
+}
+
+.global-nav__deep-submenu__split-button__toggle[aria-expanded="true"],
+.global-nav__deep-submenu__split-button__toggle:hover {
+  background-color: rgb(58, 125, 149);
+}
+
 .global-nav__deep-submenu a {
   display: block;
   color: white;
@@ -404,6 +451,28 @@
 }
 
 .global-nav__deep-submenu a:hover {
+  text-decoration: underline;
+}
+
+.global-nav__very-deep-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 1rem 0.5rem 2.75rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.global-nav__very-deep-submenu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 0.3rem 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.global-nav__very-deep-submenu a:hover {
   text-decoration: underline;
 }
 
@@ -433,6 +502,10 @@
 }
 
 .global-nav__deep-submenu.show {
+  max-height: 1000px;
+}
+
+.global-nav__very-deep-submenu.show {
   max-height: 1000px;
 }
 

@@ -33,21 +33,26 @@ function initSplitButtonToggles() {
 }
 
 function initNestedSplitButtonToggles() {
-  const nestedButtons = document.querySelectorAll(
-    ".global-nav__submenu__split-button__toggle"
-  );
+  const selectors = [
+    ".global-nav__submenu__split-button__toggle",
+    ".global-nav__deep-submenu__split-button__toggle",
+  ];
+  const nestedButtons = document.querySelectorAll(selectors.join(", "));
+  const validPanels = [
+    "global-nav__submenu",
+    "global-nav__deep-submenu",
+    "global-nav__very-deep-submenu",
+  ];
 
   nestedButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const panel = button
-        .closest(".global-nav__submenu__split-button")
+        .closest(
+          ".global-nav__submenu__split-button, .global-nav__deep-submenu__split-button"
+        )
         ?.nextElementSibling;
 
-      if (
-        panel &&
-        (panel.classList.contains("global-nav__submenu") ||
-          panel.classList.contains("global-nav__deep-submenu"))
-      ) {
+      if (panel && validPanels.some((cls) => panel.classList.contains(cls))) {
         togglePanel(button, panel);
       }
     });
@@ -59,4 +64,3 @@ export function initNavigation() {
   initSplitButtonToggles();
   initNestedSplitButtonToggles();
 }
-
