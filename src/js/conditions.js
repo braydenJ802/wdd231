@@ -1,10 +1,12 @@
 import spritePath from '../images/sprite.symbol.svg';
 import "../css/style.css"; // we can do this type of import because we are using Vite
+import "../css/home.css";
 import "../css/conditions.css";
 
 import { getParkData, getParkAlerts, getVisitorCenterData, getActivityData } from "./parkService.mjs";
-import { setHeaderInfo, setContactInfo } from "./main.js";
+import { setHeaderInfo, setContactInfo } from "./siteInfo.mjs";
 import { initNavigation } from "./navigation.mjs";
+import { updateVisitorCenterNavLinks } from "./visitorCenterNav.mjs";
 
 // Template functions
 
@@ -23,9 +25,11 @@ function alertInfoTemplate(alert) {
         </div></li>`
 }
 
-function visitorCenterInfoTemplate(visitorCenter) {
+function visitorCenterInfoTemplate(center) {
     return `<li class="visitor-center">
-        <h4><a href="visitor-center.html?id=${visitorCenter.id}">${visitorCenter.name}</a></h4>
+        <h4><a href="visitor-center.html?id=${center.id}">${center.name}</a></h4>
+        <p>${center.description}</p>
+        <p>${center.directionsInfo}</p>
     </li>`;
 }
 
@@ -74,6 +78,7 @@ async function init() {
   setParkAlerts(parkAlerts);
   setVisitorCenterInfo(visitorCenters);
   setActivityInfo(activities);
+  updateVisitorCenterNavLinks(visitorCenters);
 }
 
 init();

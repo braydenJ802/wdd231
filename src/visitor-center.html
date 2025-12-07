@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>[Park Name]</title>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/visitor-center.js"></script>
   </head>
   <body>
     <p class="disclaimer">
@@ -137,7 +137,7 @@
                           >Toggle submenu for Visitor Centers</span>
                       </button>
                     </div>
-                    <ul class="global-nav__very-deep-submenu">
+                    <ul class="global-nav__very-deep-submenu visitor-center-nav-links">
                       <li><a href="#">Albright Visitor Center</a></li>
                       <li><a href="#">Canyon Visitor Education Center</a></li>
                       <li><a href="#">Fishing Bridge Visitor Center</a></li>
@@ -367,7 +367,7 @@
                         <li class="banner-nav__menu-item banner-nav__menu-item--has-children">
                           <a href="#">Visitor Centers</a>
                           <div class="banner-nav__submenu-panel">
-                            <ul class="banner-nav__menu-list banner-nav__menu-list--nested">
+                            <ul class="banner-nav__menu-list banner-nav__menu-list--nested visitor-center-nav-links">
                               <li><a href="#">Albright Visitor Center</a></li>
                               <li><a href="#">Canyon Visitor Education Center</a></li>
                               <li><a href="#">Fishing Bridge Visitor Center</a></li>
@@ -485,8 +485,107 @@
     </header>
     
     <main id="main">
-      
+      <h1 class="visitor-center-name">
+        <svg class="icon" role="presentation" focusable="false">
+          <use xlink:href="/images/sprite.symbol.svg#ranger-station"></use>
+        </svg>
+        <span class="visitor-center-name__text">Visitor Center Name</span>
+      </h1>
 
+      <section class="visitor-center-info" id="visitor-center-info">
+        <figure class="visitor-center-info__figure">
+          <img
+            src=""
+            alt=""
+            class="visitor-center-info__image"
+          />
+          <figcaption class="visitor-center-info__figcaption">
+            <span class="visitor-center-info__image-title"></span>
+            <span class="visitor-center-info__image-credit"></span>
+          </figcaption>
+        </figure>
+        <p class="visitor-center-info__description"></p>
+      </section>
+
+      <section class="visitor-center-details-list">
+        <details name="visitor-center-details" id="vcAddresses">
+          <summary>
+            <svg class="icon" role="presentation" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#heading-icon_map-pin"></use>
+            </svg>
+            Addresses
+          </summary>
+          <div class="visitor-center-addresses">
+            <section class="visitor-center-addresses__physical">
+              <h3>Physical Address</h3>
+              <address class="visitor-center-addresses__physical-content"></address>
+            </section>
+            <section class="visitor-center-addresses__mailing">
+              <h3>Mailing Address</h3>
+              <address class="visitor-center-addresses__mailing-content"></address>
+            </section>
+          </div>
+        </details>
+
+        <details name="visitor-center-details" id="vcDirections">
+          <summary>
+            <svg class="icon" role="presentation" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#directions"></use>
+            </svg>
+            Directions
+          </summary>
+          <div class="visitor-center-directions">
+            <p class="visitor-center-directions__text"></p>
+            <a
+              class="visitor-center-directions__link"
+              href="#"
+              target="_blank"
+              rel="noreferrer noopener"
+            ></a>
+          </div>
+        </details>
+
+        <details name="visitor-center-details" id="vcAmenities">
+          <summary>
+            <svg class="icon" role="presentation" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#heading-icon_info"></use>
+            </svg>
+            Amenities
+          </summary>
+          <ul class="visitor-center-amenities"></ul>
+        </details>
+
+        <details name="visitor-center-details" id="vcContact">
+          <summary>
+            <svg class="icon" role="presentation" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#phone"></use>
+            </svg>
+            Contact Information
+          </summary>
+          <div class="visitor-center-contact">
+            <section class="visitor-center-contact__email">
+              <h3>Email Address</h3>
+              <ul class="visitor-center-contact__email-list"></ul>
+            </section>
+            <section class="visitor-center-contact__phone">
+              <h3>Phone Numbers</h3>
+              <ul class="visitor-center-contact__phone-list"></ul>
+            </section>
+          </div>
+        </details>
+      </section>
+
+      <section class="visitor-center-gallery" id="visitor-center-gallery">
+        <h2>
+          <svg class="icon" role="presentation" focusable="false">
+            <use xlink:href="/images/sprite.symbol.svg#camera-alt"></use>
+          </svg>
+          Image Gallery
+        </h2>
+        <ul class="visitor-center-gallery__list">
+          <li><img src="" alt="" /></li>
+        </ul>
+      </section>
     </main>
     <footer id="park-footer">
 

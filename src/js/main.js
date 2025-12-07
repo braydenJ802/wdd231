@@ -1,19 +1,11 @@
 import "../css/style.css"; // we can do this type of import because we are using Vite
 import "../css/home.css";
 
-
-import { getParkData } from "./parkService.mjs";
+import { getParkData, getVisitorCenterData } from "./parkService.mjs";
 import { getParkMediaInfo } from "./parkInfo.mjs";
 import { initNavigation } from "./navigation.mjs";
-
-
-function parkInfoTemplate(info) {
-  return `<a href="/" class="hero-banner__title">${info.name}</a>
-  <p class="hero-banner__subtitle">
-    <span>${info.designation}</span>
-    <span>${info.states}</span>
-  </p>`;
-}
+import { setHeaderInfo, setContactInfo } from "./siteInfo.mjs";
+import { updateVisitorCenterNavLinks } from "./visitorCenterNav.mjs";
 
 function parkIntroTemplate(info) {
   return `
@@ -26,7 +18,7 @@ function parkIntroTemplate(info) {
 function mediaCardTemplate(info) {
   let html = ``;
 
-  info.forEach(card => {
+  info.forEach((card) => {
     html += `
       <a class="media-card" href="${card.link}">
         <img src="${card.image}" alt="${card.name}" class="media-card__image" />
@@ -41,72 +33,26 @@ function mediaCardTemplate(info) {
   return html;
 }
 
-function contactInfoTemplate(info) {
-  
-  let contacts = info.contacts.phoneNumbers;
-  let address = info.addresses[1];
-  
-  let html = ``;
-
-  html += `
-    <h1>CONTACT INFO</h1>
-
-    <address>
-      <h2>Mailing Address:</h2>
-
-      <p>${address.line1}</p>
-      <p>${address.city}, ${address.stateCode} ${address.postalCode}</p>
-
-      <h2>Phone:</h2>
-  `
-
-  contacts.forEach(number => {
-    html += `
-      <p>${number.phoneNumber}</p>
-    `;
-  });
-
-  html += `</address>`;
-  return html;
-}
-
-export function setHeaderInfo(data) {
-  // insert data into disclaimer section
-  const disclaimer = document.querySelector(".disclaimer > a");
-  disclaimer.href = data.url;
-  disclaimer.innerHTML = data.fullName;
-
-  // set the page title
-  document.querySelector("head > title").textContent = data.fullName;
-
-
-  // set banner image
-  document.querySelector(".hero-banner > img").src = data.images[0].url;
-
-  // set header info
-  document.querySelector(".hero-banner__content").innerHTML = parkInfoTemplate(data);
-}
-
 function setIntroInfo(data) {
-  document.querySelector(".intro").innerHTML = parkIntroTemplate(data);
+  const intro = document.querySelector(".intro");
+  if (intro) intro.innerHTML = parkIntroTemplate(data);
 }
 
 function setMediaCard(data) {
-  document.querySelector(".park-info").innerHTML = mediaCardTemplate(data);
-}
-
-export function setContactInfo(data) {
-  document.querySelector("#park-footer").innerHTML = contactInfoTemplate(data);
+  const parkInfo = document.querySelector(".park-info");
+  if (parkInfo) parkInfo.innerHTML = mediaCardTemplate(data);
 }
 
 async function init() {
   const parkData = await getParkData();
   const parkMediaInfo = await getParkMediaInfo();
+  const visitorCenters = await getVisitorCenterData();
 
   setHeaderInfo(parkData);
   setIntroInfo(parkData);
   setMediaCard(parkMediaInfo);
   setContactInfo(parkData);
+  updateVisitorCenterNavLinks(visitorCenters);
 }
 
 init();

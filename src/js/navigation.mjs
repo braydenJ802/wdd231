@@ -59,8 +59,18 @@ function initNestedSplitButtonToggles() {
   });
 }
 
-export function initNavigation() {
+function initializeNavigation() {
   initMainMenuToggle();
   initSplitButtonToggles();
   initNestedSplitButtonToggles();
+}
+
+export function initNavigation() {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeNavigation, {
+      once: true,
+    });
+  } else {
+    initializeNavigation();
+  }
 }

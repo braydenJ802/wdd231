@@ -31,6 +31,11 @@ export async function getVisitorCenterData() {
   return parkVisitorCenterData.data;
 }
 
+export async function getParkVisitorCenterDetails(id) {
+  const parkData = await getJson(`visitorcenters?id=${id}`);
+  return parkData.data[0];
+}
+
 export async function getActivityData() {
   const parkActivityData = await getJson("activities?parkCode=yell");
   console.log(parkActivityData);
