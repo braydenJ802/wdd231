@@ -14,7 +14,7 @@ const parkInfoLinks = [
   },
   {
     name: "Visitor Centers &#x203A;",
-    link: "visitor_center.html",
+    link: "visitor-center.html?id=BF28C0CA-0D8A-4000-952B-DAD60226AE22",
     description: "Learn about the visitor centers in the park.",
   },
 ];
